@@ -137,6 +137,7 @@ fatal: 'origin' does not appear to be a git repository
 ```
 
 Solution:
+You did this incorrectly! So now you need to actually create a repo on github and stop trying to create one locally and push it! ;)
 
 ### ARIA
 

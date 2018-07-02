@@ -1,0 +1,36 @@
+
+/* body {
+  font-size: 62.5%;
+  font-family: arial, sans-serif;
+} */
+
+#theCarousel img {
+  width: 100%;
+  height: 100%;
+}
+
+.jumbotron {
+  padding: 20px;
+  line-height: 25px;
+  background-color: #ddd;
+
+}
+
+.jumbotron p {
+  font-size: 17px;
+}
+
+.jumbotron h2 {
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+hr {
+  /* border: 0; */
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:black;
+  height: 1px;
+}

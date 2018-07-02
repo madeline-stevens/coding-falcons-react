@@ -1,0 +1,19 @@
+{
+  "name": "coding_falcons",
+  "version": "1.0.0",
+  "description": "Application to share information about our coding falcons school and summer code classes.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Madeline Stevens",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "pg": "^7.0.2"
+  }
+}

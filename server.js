@@ -8,6 +8,18 @@ const app = express();
 // DB config
 const db = require("./config/keys").mongoURI;
 
+//connect to mongoDB
+mongoose
+  .connect(db)
+  .then(() => console.log("mongoDB connected"))
+  .catch(err => console.log(err));
+
+app.get("/", (req, res) => res.send("hello world"));
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`server running on ${port}`));
+
 // const bodyParser = require('body-parser');
 // const pg = require("pg");
 // const cors = require("cors");

@@ -189,6 +189,16 @@ Changed to:
 </a>
 ```
 
+### REACT notes
+
+1.  cloned starter files from original coding falcons.
+2.  npm i...express, babel, body-parser, jsonwebtoken, mongoose, passport, passport-jwt, validator
+3.  set up server.js with a port
+4.  nodemon
+5.  test port 5000 in browser
+6.  added "server": "nodemon server.js" to package.json but may be redundant of "watch": "nodemon server.js"
+7.
+
 ### Resources
 
 Bootstrap in general (carousel, etc)- https://www.youtube.com/watch?v=gqOEoUR5RHg  

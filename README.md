@@ -191,7 +191,9 @@ Changed to:
 
 ### REACT notes
 
-Using Udemy's MERN stack front to back tutorial (Thank you Wade for the longin share)- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055142?start=0
+- Using Udemy's MERN stack front to back tutorial (Thank you Wade for the longin share)- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055142?start=0
+
+- Udemy devconnector project github reop: https://github.com/bradtraversy/devconnector
 
 1.  cloned starter files from original coding falcons.
 2.  npm i...express, babel, body-parser, jsonwebtoken, mongoose, passport, passport-jwt, validator
@@ -199,7 +201,12 @@ Using Udemy's MERN stack front to back tutorial (Thank you Wade for the longin s
 4.  nodemon
 5.  test port 5000 in browser
 6.  added "server": "nodemon server.js" to package.json but may be redundant of "watch": "nodemon server.js"
-7.
+7.  adding mlab mongodb string to config folder/keys file
+8.  adding routes folder > api folder > profile.js (for bio, experience, social network links), users.js (for anything auth related- username, password) and a posts.js
+9.  Adding app.use for each profile.js, users.js, posts.js within server.js
+10. Getting this error after running nodemon but that's because we haven't actually added the router to the three routes files: TypeError: Router.use() requires a middleware function but got a Object
+11. I'm getting this error: Error: Invalid schema, expected `mongodb` or `mongodb+srv`. But localhost:5000 still works.
+12. Now I'm testing each route in chome by manually typing this into browser, and we are getting our json response in the browser window (message: profile works): http://localhost:5000/api/posts/test
 
 ### Resources
 

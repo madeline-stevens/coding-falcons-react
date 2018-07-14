@@ -191,6 +191,8 @@ Changed to:
 
 ### REACT notes
 
+Using Udemy's MERN stack front to back tutorial (Thank you Wade for the longin share)- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055142?start=0
+
 1.  cloned starter files from original coding falcons.
 2.  npm i...express, babel, body-parser, jsonwebtoken, mongoose, passport, passport-jwt, validator
 3.  set up server.js with a port
@@ -209,3 +211,4 @@ Bootstrap contact us- https://bootsnipp.com/snippets/featured/contact-us
 Bootstrap footer- https://mdbootstrap.com/components/bootstrap-footer/  
 Formspree for contact us- https://formspree.io  
 routing (showing/hiding index.html content)- https://github.com/ejdelrio/11-spa_routing/tree/anthony-eddie/starter-code
+`

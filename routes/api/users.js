@@ -1,5 +1,6 @@
 const express = require("express"); //to use router we need express first
 const router = express.Router();
+const gravatar = require("gravatar");
 
 //Load User model
 const User = require("../../models/User");
@@ -21,6 +22,11 @@ router.post("/router", (req, res) => {
       //if there is a user with that email address
       return res.status(400).json({ email: "email already exists" });
     } else {
+      const avatar = gravatar.url(req.body.email, {
+        s: "200", //size
+        r: "pg", //rating
+        d: "mm" //default
+      });
       const newUser = new User({
         name: req.body.name, //this is coming from our react form
         email: req.body.email,

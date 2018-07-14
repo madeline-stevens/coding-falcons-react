@@ -207,6 +207,19 @@ Changed to:
 10. Getting this error after running nodemon but that's because we haven't actually added the router to the three routes files: TypeError: Router.use() requires a middleware function but got a Object
 11. I'm getting this error: Error: Invalid schema, expected `mongodb` or `mongodb+srv`. But localhost:5000 still works.
 12. Now I'm testing each route in chome by manually typing this into browser, and we are getting our json response in the browser window (message: profile works): http://localhost:5000/api/posts/test
+13. Adding a models folder > User.js to then create the user schema (to include name, email, password, gravatar avatar and a date)
+14. Added the logic for findOne email in Users.js. So if email already exists in mlabs database, give an error, if it does not already exist go ahead and create an account with that email. This includes the schema for a new user.
+15. Install the gravatar module with npm install gravatar.
+16. After installing I got this error: npm WARN coding_falcons@1.0.0 No repository field.
+
+And fixed this by including this in package.json:
+
+```json
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/madhubs/coding-falcons-react"
+}
+```
 
 ### Resources
 

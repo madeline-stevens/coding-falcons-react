@@ -200,7 +200,7 @@ Changed to:
 3.  set up server.js with a port
 4.  nodemon
 5.  Test port 5000 in browser
-6.  added "server": "nodemon server.js" to package.json but may be redundant of "watch": "nodemon server.js"
+6.  Added "server": "nodemon server.js" to package.json but may be redundant of "watch": "nodemon server.js"
 7.  Adding mlab mongodb string to config folder/keys file
 8.  adding routes folder > api folder > profile.js (for bio, experience, social network links), users.js (for anything auth related- username, password) and a posts.js
 9.  Adding app.use for each profile.js, users.js, posts.js within server.js

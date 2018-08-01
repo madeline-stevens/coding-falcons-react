@@ -197,7 +197,7 @@ Changed to:
 
 1.  Cloned starter files from original coding falcons.
 2.  npm i...express, babel, body-parser, jsonwebtoken, mongoose, passport, passport-jwt, validator
-3.  set up server.js with a port
+3.  Set up server.js with a port
 4.  nodemon
 5.  Test port 5000 in browser
 6.  Added "server": "nodemon server.js" to package.json but may be redundant of "watch": "nodemon server.js"

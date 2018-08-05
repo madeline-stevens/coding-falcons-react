@@ -204,7 +204,7 @@ Changed to:
 7.  Adding mlab mongodb string to config folder/keys file
 8.  adding routes folder > api folder > profile.js (for bio, experience, social network links), users.js (for anything auth related- username, password) and a posts.js
 9.  Adding app.use for each profile.js, users.js, posts.js within server.js
-10. Getting this error after running nodemon but that's because we haven't actually added the router to the three routes files: TypeError: Router.use() requires a middleware function but got a Object
+10. Getting this error after running nodemon but that's because we haven't actually added the router to the three routes files:``` TypeError: Router.use() requires a middleware function but got a Object
 11. I'm getting this error: Error: Invalid schema, expected `mongodb` or `mongodb+srv`. But localhost:5000 still works.
 12. Now I'm testing each route in chome by manually typing this into browser, and we are getting our json response in the browser window (message: profile works): http://localhost:5000/api/posts/test
 13. Adding a models folder > User.js to then create the user schema (to include name, email, password, gravatar avatar and a date)

@@ -211,7 +211,8 @@ Changed to:
 14. Added the logic for findOne email in Users.js. So if email already exists in mlabs database, give an error, if it does not already exist go ahead and create an account with that email. This includes the schema for a new user.
 15. Install the gravatar module with npm install gravatar.
 16. After installing I got this error: npm WARN coding_falcons@1.0.0 No repository field.
-17.  
+17.
+18.
 
 And fixed this by including this in package.json:
 

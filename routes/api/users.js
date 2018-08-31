@@ -1,6 +1,7 @@
 const express = require("express"); //to use router we need express first
 const router = express.Router();
 const gravatar = require("gravatar");
+const bcrypt = require("bcrypt.js");
 
 //Load User model
 const User = require("../../models/User");
@@ -32,6 +33,17 @@ router.post("/router", (req, res) => {
         email: req.body.email,
         avatar, //with ES6 because "avatar: avatar" would have been the same we can just simplify it
         password: req.body.password
+      });
+
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash; //right now pw is plain text but we want to save it to the hash
+          newUser
+            .save()
+            .then(user => res.json(user)) //gives us the user and sends back a successful response
+            .catch(err => console.log(err));
+        });
       });
     }
   });

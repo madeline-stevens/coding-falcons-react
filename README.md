@@ -227,6 +227,7 @@ And fixed this by including this in package.json:
 20. Tested a GET request in postman- http://localhost:5000/api/users/test and recieved our "Users works!" message as a response.
 21. Testing a POST- http://localhost:5000/api/users/register and recieving an 'unidetified '<'' error message. Now I'm getting this error- '{ ValidationError: users validation failed: name: Path `name` is required.' in the console.
     THE FIX: Changed name, required to false in the User schema and I finally got a json response. Changed required back to true and now it magically works!
+22. Added the logic for the password but instead of just having success on password as the response we need to create a token to be sent to the user to be able to access protected routes.
 
 ### Resources
 

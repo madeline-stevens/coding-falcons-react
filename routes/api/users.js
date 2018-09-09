@@ -2,6 +2,8 @@ const express = require("express"); //to use router we need express first
 const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 //Load User model
 const User = require("../../models/User");
@@ -65,10 +67,16 @@ router.post("/login", (req, res) => {
       if (!user) {
         return res.status(404).json({ email: "User not found" });
       }
-      // Check password
+      // now we Check password
       bcrypt.compare(password, user.password).then(isMatch => {
+        //compare the typed pw with the db hashed pw
         if (isMatch) {
-          res.json({ msg: "Success on password" });
+          // user mathed
+
+          const payload = { id: user.id, name: user.name, avatar: user.avatar }; //create JWT payload
+
+          //sign token
+          jwt.sign();
         } else {
           return res.status(400).json({ password: "password incorrect" });
         }

@@ -211,14 +211,6 @@ Changed to:
 14. Added the logic for findOne email in Users.js. So if email already exists in mlabs database, give an error, if it does not already exist go ahead and create an account with that email. This includes the schema for a new user.
 15. Install the gravatar module with npm install gravatar.
 16. After installing I got this error: npm WARN coding_falcons@1.0.0 No repository field.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
 
 And fixed this by including this in package.json:
 
@@ -228,6 +220,11 @@ And fixed this by including this in package.json:
   "url": "https://github.com/madhubs/coding-falcons-react"
 }
 ```
+
+17. I did an npm install to fix the error around bcrypt not being installed, now i see that it needs to be bcryptjs not bcrypt.js.
+18. Currently on SECTION 3, VIDEO 10 OF MERN tutorial
+19. Fixed the mongo error by fixing my key.js
+20. Tested a user in postman
 
 ### Resources
 

@@ -1,7 +1,7 @@
 const express = require("express"); //to use router we need express first
 const router = express.Router();
 const gravatar = require("gravatar");
-const bcrypt = require("bcrypt.js");
+const bcrypt = require("bcryptjs");
 
 //Load User model
 const User = require("../../models/User");
@@ -16,7 +16,14 @@ router.get("/test", (req, res) => res.json({ message: "users works!" })); //equi
 //@route GET api/users/register
 //@desc  To register a user
 //@access Public
-router.post("/router", (req, res) => {
+router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  //check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   User.findOne({ email: req.body.email }).then(user => {
     //with mongoose you can either use a callback or a promise
     if (user) {
@@ -42,11 +49,36 @@ router.post("/router", (req, res) => {
           newUser
             .save()
             .then(user => res.json(user)) //gives us the user and sends back a successful response
-            .catch(err => console.log(err));
+            .catch(err => console.log(err)); //incase something goes wrong we want to console.log the error
         });
       });
     }
   });
+});
+
+// @route  GET api/users/login
+// @desc   Login User / Returning JWT Token
+// @access Public
+router.post("/Login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password; //this is the user typed pw that will be plane text but the password in the db is hashed
+
+  //find user by email
+  User.findOne({ email }) //same as 'email: email', find one by email
+    .then(user => {
+      //promise that checks for the user
+      if (!user) {
+        return res.status(404).json({ email: "User not found" });
+      }
+      // Check password
+      bcrypt.compare(password, user.password).then(isMatch => {
+        if (isMatch) {
+          res.json({ msg: "Success on password" });
+        } else {
+          return res.status(400).json({ password: "password incorrect" });
+        }
+      });
+    });
 });
 
 module.exports = router;

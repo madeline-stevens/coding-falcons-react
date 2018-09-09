@@ -17,13 +17,6 @@ router.get("/test", (req, res) => res.json({ message: "users works!" })); //equi
 //@desc  To register a user
 //@access Public
 router.post("/register", (req, res) => {
-  const { errors, isValid } = validateRegisterInput(req.body);
-
-  //check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
   User.findOne({ email: req.body.email }).then(user => {
     //with mongoose you can either use a callback or a promise
     if (user) {
@@ -36,6 +29,7 @@ router.post("/register", (req, res) => {
         d: "mm" //default
       });
       const newUser = new User({
+        //creating a resource w/ mongoose
         name: req.body.name, //this is coming from our react form
         email: req.body.email,
         avatar, //with ES6 because "avatar: avatar" would have been the same we can just simplify it
@@ -44,8 +38,9 @@ router.post("/register", (req, res) => {
 
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
+          //the hash is what we want to store in db
           if (err) throw err;
-          newUser.password = hash; //right now pw is plain text but we want to save it to the hash
+          newUser.password = hash; //right now pw is plain text but we want to set it to the hash
           newUser
             .save()
             .then(user => res.json(user)) //gives us the user and sends back a successful response
@@ -59,7 +54,7 @@ router.post("/register", (req, res) => {
 // @route  GET api/users/login
 // @desc   Login User / Returning JWT Token
 // @access Public
-router.post("/Login", (req, res) => {
+router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password; //this is the user typed pw that will be plane text but the password in the db is hashed
 

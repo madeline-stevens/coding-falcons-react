@@ -224,7 +224,9 @@ And fixed this by including this in package.json:
 17. I did an npm install to fix the error around bcrypt not being installed, now i see that it needs to be bcryptjs not bcrypt.js.
 18. Currently on SECTION 3, VIDEO 10 OF MERN tutorial
 19. Fixed the mongo error by fixing my key.js
-20. Tested a user in postman
+20. Tested a GET request in postman- http://localhost:5000/api/users/test and recieved our "Users works!" message as a response.
+21. Testing a POST- http://localhost:5000/api/users/register and recieving an 'unidetified '<'' error message. Now I'm getting this error- '{ ValidationError: users validation failed: name: Path `name` is required.' in the console.
+    THE FIX: Changed name, required to false in the User schema and I finally got a json response. Changed required back to true and now it magically works!
 
 ### Resources
 

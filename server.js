@@ -31,7 +31,7 @@ app.use(passport.initialize());
 // Passport Config
 require("./config/passport")(passport);
 
-// use routes
+// user routes
 app.use("/api/users", users); //we want api/users to go to users
 app.use("/api/posts", posts);
 app.use("/api/profile", profile);

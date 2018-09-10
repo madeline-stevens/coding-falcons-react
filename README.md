@@ -223,7 +223,7 @@ And fixed this by including this in package.json:
     THE FIX: Changed name, required to false in the User schema and I finally got a json response. Changed required back to true and now it magically works!
 22. Added the logic for the password but instead of just having success on password as the response we need to create a token to be sent to the user to be able to access protected routes.
 23. Next we'll use passport (the main authentication module) to actually verify the bearer token and make routes private
-24.
+24. I am now getting the success message on the /current bearer request! I think a piece of the solution was changing the authorization tab settings to 'no auth'.
 
 ### Resources
 

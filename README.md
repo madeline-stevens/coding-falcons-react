@@ -224,6 +224,8 @@ And fixed this by including this in package.json:
 22. Added the logic for the password but instead of just having success on password as the response we need to create a token to be sent to the user to be able to access protected routes.
 23. Next we'll use passport (the main authentication module) to actually verify the bearer token and make routes private
 24. I am now getting the success message on the /current bearer request! I think a piece of the solution was changing the authorization tab settings to 'no auth'.
+25. Completed so far: we can validate users, accept tokens and access protected routes.
+26. (section 3, video 13ish?)Server side validation:
 
 ### Resources
 

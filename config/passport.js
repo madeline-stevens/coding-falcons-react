@@ -11,10 +11,10 @@ opts.secretOrKey = keys.secretOrKey;
 module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
-      User.findById(jwt_payload.id)
+      User.findById(jwt_payload.id) //findbyid is a mongoose method
         .then(user => {
           if (user) {
-            return done(null, user); //return the done function. params= error which there arent any so it's null
+            return done(null, user); //if user is found return the done function. params= error which there arent any so it's null
           }
           return done(null, false);
         })

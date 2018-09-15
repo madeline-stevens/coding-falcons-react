@@ -6,6 +6,9 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
+// Load input validation
+const validateRegisterInput = require("../../validation/register");
+
 //Load User model
 const User = require("../../models/User");
 
@@ -20,6 +23,12 @@ router.get("/test", (req, res) => res.json({ message: "users works!" })); //equi
 //@desc  To register a user
 //@access Public
 router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body); //pull out the errors and isValid
+  // Check validation (is it empty, etc.)
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   User.findOne({ email: req.body.email }).then(user => {
     //with mongoose you can either use a callback or a promise
     if (user) {

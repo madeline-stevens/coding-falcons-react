@@ -225,7 +225,8 @@ And fixed this by including this in package.json:
 23. Next we'll use passport (the main authentication module) to actually verify the bearer token and make routes private
 24. I am now getting the success message on the /current bearer request! I think a piece of the solution was changing the authorization tab settings to 'no auth'.
 25. Completed so far: we can validate users, accept tokens and access protected routes.
-26. (section 3, video 13ish?)Server side validation:
+26. (section 3, video 13ish?)Server side validation: created a global menthod for checking if fields of a form are blank or not following registration rules. Tested with postman. And it works! The method can be found in the isEmpty.js file- //this file is to create a global method that I can reuse (trying to minimize the number of libraries I use) for checking if fields are blank/null, object, string, etc. because we can't use the Validator isEmpty method because it only checks for empty strings. but our errors variable (in register.js file) is an object. We could use something like lowdash library.
+27.
 
 ### Resources
 

@@ -237,7 +237,21 @@ And fixed this by including this in package.json:
 }
 ```
 
-28.
+28. The email kept returning as invalid, may have been that it was already in the db but that should return the "email already exists" error message so that remains a mystery. I tried the same email but included a number and it worked.
+
+```json
+{
+  "_id": "5bbc2e067eb7292ec700e827",
+  "name": "maddy",
+  "email": "maddy2@gmail.com",
+  "avatar": "//www.gravatar.com/avatar/2974b2762bf9a0af7f588a335eb3a0ce?s=200&r=pg&d=mm",
+  "password": "$2a$10$0GBKZ3Z00CewROGOPBi0De.7GyG9TlmN7WVIZmxnNF99NgxhEYQ9e",
+  "date": "2018-10-09T04:26:46.677Z",
+  "__v": 0
+}
+```
+
+29.
 
 ### Resources
 

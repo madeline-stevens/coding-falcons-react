@@ -8,6 +8,7 @@ const passport = require("passport");
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 //Load User model
 const User = require("../../models/User");
@@ -67,15 +68,23 @@ router.post("/register", (req, res) => {
 // @desc   Login User / Returning JWT Token
 // @access Public
 router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const email = req.body.email;
-  const password = req.body.password; //this is the user typed pw that will be plane text but the password in the db is hashed
+  const password = req.body.password;
 
   //find user by email
   User.findOne({ email }) //same as 'email: email', find one by email
     .then(user => {
       //promise that checks for the user
       if (!user) {
-        return res.status(404).json({ email: "User not found" });
+        errors.email = "User not found";
+        return res.status(404).json(errors);
       }
       // now we Check password
       bcrypt.compare(password, user.password).then(isMatch => {
@@ -98,7 +107,8 @@ router.post("/login", (req, res) => {
             }
           ); //3600 is an hour- the user should have to log back in and a new token is generated
         } else {
-          return res.status(400).json({ password: "password incorrect" });
+          errors.password = "Password incorrect";
+          return res.status(400).json(errors);
         }
       });
     });

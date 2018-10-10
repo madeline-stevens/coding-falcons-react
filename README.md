@@ -286,8 +286,20 @@ GET/verify current user - http://localhost:5000/api/users/current
 }
 ```
 
-30. Set up the profile schema
-31.
+30. Set up the profile schema in models/Profile.js
+31. Now we'll set up the routes in routes/api/profile.js
+32. we need to set up the 'Get current users proifle' route within profile.js -- add functionality for if user found return user, if not throw error.
+33. Postman test returns this:
+
+```json
+{
+  "noprofile": "There is no profile for this user"
+}
+```
+
+Which is exactly what we want becuase we haven't filled out the profile form yet.
+
+34. Next is to create the route that takes us from the blank profile dashboard to the profile create form.
 
 ### Resources
 

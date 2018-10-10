@@ -4,6 +4,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
+//Load Validation
+const validateProfileInput = require("../../validation/profile");
+
 // Load Profile model
 const Profile = require("../../models/Profile");
 // Load User profile
@@ -45,6 +48,13 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateProfileInput(req.body); //we want to get erros and isValid, and we want to take that from validateProfileInput
+
+    //Check Validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     //Get fields
     const profileFields = {}; //everything that comes in through that form will go into this empty object
     profileFields.user = req.user.id;

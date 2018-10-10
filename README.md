@@ -299,7 +299,10 @@ GET/verify current user - http://localhost:5000/api/users/current
 
 Which is exactly what we want becuase we haven't filled out the profile form yet.
 
-34. Next is to create the route that takes us from the blank profile dashboard to the profile create form.
+34. Next is to create the route that takes us from the blank profile dashboard to the profile create form. I did this within profile.js under the header- //@desc Create OR edit user profile
+
+35. Now we need to set up custom validation for the create profile form by creating a profile.js form in the validation folder.
+36.
 
 ### Resources
 

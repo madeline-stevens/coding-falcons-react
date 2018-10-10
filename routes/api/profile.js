@@ -1,5 +1,4 @@
 const express = require("express"); //to use router we need express first
-
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -29,6 +28,7 @@ router.get(
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
+      .populate("user", ["name", "avatar"])
       .then(profile => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -79,7 +79,7 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
-        //if profile then we just want to UPDATE
+        //UPDATE- if profile then we just want to UPDATE
         Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },

@@ -251,7 +251,43 @@ And fixed this by including this in package.json:
 }
 ```
 
-29.
+29. Postman requests/responses for register, login and verify user:
+
+POST/register- http://localhost:5000/api/users/register
+
+```json
+{
+  "_id": "5bbc2e067eb7292ec700e827",
+  "name": "maddy",
+  "email": "maddy2@gmail.com",
+  "avatar": "//www.gravatar.com/avatar/2974b2762bf9a0af7f588a335eb3a0ce?s=200&r=pg&d=mm",
+  "password": "$2a$10$0GBKZ3Z00CewROGOPBi0De.7GyG9TlmN7WVIZmxnNF99NgxhEYQ9e",
+  "date": "2018-10-09T04:26:46.677Z",
+  "__v": 0
+}
+```
+
+POST/login -http://localhost:5000/api/users/login
+
+```json
+{
+  "success": true,
+  "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViYmMyZTA2N2ViNzI5MmVjNzAwZTgyNyIsIm5hbWUiOiJtYWRkeSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMjk3NGIyNzYyYmY5YTBhZjdmNTg4YTMzNWViM2EwY2U_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTM5MTIyMjQ4LCJleHAiOjE1MzkxMjU4NDh9.bXSAU3NweS9NGjpeUl54nwfhIdRpnP_T2ofphOxotRY"
+}
+```
+
+GET/verify current user - http://localhost:5000/api/users/current
+
+```json
+{
+  "id": "5bbc2e067eb7292ec700e827",
+  "name": "maddy",
+  "email": "maddy2@gmail.com"
+}
+```
+
+30. Set up the profile schema
+31.
 
 ### Resources
 

@@ -302,7 +302,43 @@ Which is exactly what we want becuase we haven't filled out the profile form yet
 34. Next is to create the route that takes us from the blank profile dashboard to the profile create form. I did this within profile.js under the header- //@desc Create OR edit user profile
 
 35. Now we need to set up custom validation for the create profile form by creating a profile.js form in the validation folder.
-36.
+36. Now it's time to test the create profile route in postman with a new tab for a POST with http://localhost:5000/api/profile, set Authorization header to fresh Bearer token, press send.
+
+Should return:
+
+```json
+{
+  "handle": "Handle needs to be between 6 and 40 characters",
+  "status": "Status field is required",
+  "skills": "Skills are required"
+}
+```
+
+37. Now this time with the body filled out with:
+    handle : Madeline
+    status: Developer
+    skills : HTML, CSS, JavaScript, ARIA
+    twitter: https://twitter.com/_madtweets
+
+Should return this object:
+
+```json
+{
+  "social": {
+    "twitter": "https://twitter.com/_madtweets"
+  },
+  "skills": ["HTML", " CSS", " JavaScript", " ARIA"],
+  "_id": "5bbe50d47066cf4bec7f12dd",
+  "user": "5bbc2e067eb7292ec700e827",
+  "handle": "Madeline",
+  "status": "Developer",
+  "experience": [],
+  "education": [],
+  "date": "2018-10-10T19:19:48.798Z",
+  "__v": 0,
+  "company": "Trilogy Education"
+}
+```
 
 ### Resources
 

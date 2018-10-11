@@ -340,7 +340,8 @@ Should return this object:
 }
 ```
 
-38. Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have experience or date included in my object.
+38. !!!!Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have experience or date included in my object.
+39.
 
 ### Resources
 

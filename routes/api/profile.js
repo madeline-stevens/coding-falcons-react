@@ -63,9 +63,9 @@ router.get("/handle/:handle", (req, res) => {
 //@desc  Get profile by user id
 //@access Public --> anyone can see a profile by the handle
 
-router.get("/handle/:handle", (req, res) => {
+router.get("/user/:user_id", (req, res) => {
   const errors = {};
-  Profile.findOne({ handle: req.params.handle })
+  Profile.findOne({ handle: req.params.user_id })
     .populate("user", ["name", "avatar"])
     .then(profile => {
       if (!profile) {

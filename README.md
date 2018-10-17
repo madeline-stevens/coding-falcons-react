@@ -340,7 +340,7 @@ Should return this object:
 }
 ```
 
-38. !!!!Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have experience or date included in my object.
+38. !!!!Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have 'experience' or 'date' properties included in my object.
 39. Working on an open source project right now called ifme! It's in ruby and react, so adding ARIA lables within that code base is a new challenge.
 
 ### Resources

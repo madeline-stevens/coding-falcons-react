@@ -5,6 +5,7 @@ const passport = require("passport");
 
 //Load Validation
 const validateProfileInput = require("../../validation/profile");
+const validateExperienceInput = require("../../validation/experience");
 
 // Load Profile model
 const Profile = require("../../models/Profile");
@@ -20,7 +21,7 @@ router.get("/test", (req, res) => res.json({ message: "profile works!" })); //eq
 //HEADER INFO BELOW
 //@route GET api/profile
 //@desc  Get current users profile
-//@access Private
+//@access Private //becuase this is a private route we need passport and can't just write out the whole route path
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
@@ -38,7 +39,7 @@ router.get(
       })
       .catch(err => res.status(404).json(err));
   }
-); //becuase this is a private route we need passport and can't just write out the whole route path
+);
 
 //@route POST api/profile/all
 //@desc  Get all profiles
@@ -154,6 +155,39 @@ router.post(
       }
     });
   }
-); //becuase this is a private route we need passport and can't just write out the whole route path
+);
+
+//@route POST api/profile/experience
+//@desc  Add experience to profile
+//@access Private
+
+router.post(
+  "/experience",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body); //we want to get errors and isValid, and we want to take that from validateProfileInput
+
+    //Check Validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      const newExp = {
+        title: req.body.title,
+        company: req.body.company,
+        location: req.body.location,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      //Add to experience array
+      profile.experience.unshift(newExp);
+
+      profile.save().then(profile => res.json(profile)); //take existing prof and save it and that will give us a promise so we .then it that will give us the profile and then we want to res.json the profile. It will add exp and return the profile with the new experience content. And in our frontend it will update the state.
+    });
+  }
+);
 
 module.exports = router;

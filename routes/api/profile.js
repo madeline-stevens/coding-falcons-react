@@ -191,7 +191,7 @@ router.post(
   }
 );
 
-//@route POST api/profile/experience
+//@route POST api/profile/education
 //@desc  Add experience to profile
 //@access Private
 
@@ -220,6 +220,29 @@ router.post(
 
       profile.save().then(profile => res.json(profile));
     });
+  }
+);
+
+//@route DELETE api/profile/experience/:exp_id
+//@desc  Delete experience from profile
+//@access Private
+
+router.delete(
+  "/experience/:exp_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        //find the experience we want to delete...so get remove index
+        const removeIndex = profile.experience
+          .map(item => item.id)
+          .indexOf(req.params.exp_id);
+        //splice the experience to be deleted out of array
+        profile.experience.splice(removeIndex, 1); //with removeIndex we now know which one we want to remove, and we want to remove just one from our removeIndex var
+        //save
+        profile.save().then(profile => res.json(profile)); //save the new profile and send it back
+      })
+      .catch(err => res.status(404).json(err));
   }
 );
 

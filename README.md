@@ -393,6 +393,10 @@ Should return this object:
 
 43. yay! http://localhost:5000/api/profile/all
 44. Now I've added the experience fields to the profile route, we can test in postman. And it returns the same as above but with an experience array with the fields (company, title, to, from and description).
+45. Now its time to be able to delete items from profile. All done creating a route for that now testing in postman.
+46. Testing the delete in postman by coyping bearer auth and the id of the experience we want to delete to paste into new DELETE tab. Here's the route with copy/pasted --> http://localhost:5000/api/experience/5bc8f286fffea53df97de9f3
+47. successful deletion with the id of an experience.
+48. Now it's time to create a delete route but this time for education.
 
 ### Resources
 

@@ -392,6 +392,7 @@ Should return this object:
 ```
 
 43. yay! http://localhost:5000/api/profile/all
+44. Now I've added the experience fields to the profile route, we can test in postman. And it returns the same as above but with an experience array with the fields (company, title, to, from and description).
 
 ### Resources
 

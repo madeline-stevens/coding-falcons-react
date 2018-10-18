@@ -6,6 +6,7 @@ const passport = require("passport");
 //Load Validation
 const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
+const validateEducationInput = require("../../validation/education");
 
 // Load Profile model
 const Profile = require("../../models/Profile");
@@ -186,6 +187,38 @@ router.post(
       profile.experience.unshift(newExp);
 
       profile.save().then(profile => res.json(profile)); //take existing prof and save it and that will give us a promise so we .then it that will give us the profile and then we want to res.json the profile. It will add exp and return the profile with the new experience content. And in our frontend it will update the state.
+    });
+  }
+);
+
+//@route POST api/profile/experience
+//@desc  Add experience to profile
+//@access Private
+
+router.post(
+  "/education",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateEducationInput(req.body); //we want to get errors and isValid, and we want to take that from validateProfileInput
+
+    //Check Validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      const newEdu = {
+        school: req.body.school,
+        degree: req.body.degree,
+        fieldofstudy: req.body.fieldofstudy,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current
+      };
+
+      //Add to experience array
+      profile.education.unshift(newEdu);
+
+      profile.save().then(profile => res.json(profile));
     });
   }
 );

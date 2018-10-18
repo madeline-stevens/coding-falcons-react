@@ -340,12 +340,63 @@ Should return this object:
 }
 ```
 
-38. !!!!Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have 'experience' or 'date' properties included in my object.
-39. Working on an open source project right now called ifme! It's in ruby and react, so adding ARIA lables within that code base is a new challenge.
+38. !!!!Next was to create a user object that populates the users id, name and avatar. I haven't gotten that to populate yet. I also noticed I don't have 'experience' or 'date' properties included in my object. This is half solved below!
+39. The pubic API route tested in postman to get the profile by the handle- http://localhost:5000/api/profile/handle/Madeline
+    The response object-
+
+```json
+{
+  "social": {
+    "twitter": "https://twitter.com/_madtweets",
+    "instagram": "https://twitter.com/_madtweets"
+  },
+  "skills": ["HTML", " CSS", " JavaScript", " ARIA"],
+  "_id": "5bbe50d47066cf4bec7f12dd",
+  "user": {
+    "_id": "5bbc2e067eb7292ec700e827",
+    "name": "maddy",
+    "avatar": "//www.gravatar.com/avatar/2974b2762bf9a0af7f588a335eb3a0ce?s=200&r=pg&d=mm"
+  },
+  "handle": "Madeline",
+  "status": "Developer",
+  "experience": [],
+  "education": [],
+  "date": "2018-10-10T19:19:48.798Z",
+  "__v": 0,
+  "company": "Trilogy Education"
+}
+```
+
+41. Next we need to create a route that gets all the profiles- router.get("/all", (req, res) => {
+42. CReating more than one profile so we can actually use that route.
+
+```json
+{
+  "social": {
+    "twitter": "https://twitter.com/_madtweets",
+    "linkedin": "https://www.linkedin.com/in/madelinestevens/",
+    "instagram": "https://twitter.com/_madtweets"
+  },
+  "skills": ["JS", " C#"],
+  "_id": "5bc7f6c95ec5170a5c517708",
+  "user": "5bbc2dd87eb7292ec700e824",
+  "handle": "Maddy3",
+  "company": "N/A",
+  "bio": "I am  a passionate developer focused on React, C#, and ARIA. ",
+  "status": "Developer3",
+  "experience": [],
+  "education": [],
+  "date": "2018-10-18T02:58:17.818Z",
+  "__v": 0
+}
+```
+
+43. yay! http://localhost:5000/api/profile/all
 
 ### Resources
 
-Bootstrap in general (carousel, etc)- https://www.youtube.com/watch?v=gqOEoUR5RHg  
+Bootstrap in general (carousel, etc)- https://www.youtube.com/wa
+tch?v=gqOEoUR5RHg  
 Bootstrap carousel (deeper dive)- https://www.youtube.com/watch?v=R0nkkXkrby0  
 Rounding corners for about the team- https://codepen.io/Madeline206/pen/JZPmMY?editors=1100  
 Resizing jumbotron- https://www.codecademy.com/en/forum_questions/5398ac97282ae39e8d000be6  

@@ -40,6 +40,23 @@ router.get(
   }
 ); //becuase this is a private route we need passport and can't just write out the whole route path
 
+//@route POST api/profile/all
+//@desc  Get all profiles
+//@access Public
+router.get("/all", (req, res) => {
+  const errors = {};
+  Profile.find()
+    .populate("user", ["name", "avatar"])
+    .then(profiles => {
+      if (!profiles) {
+        errors.noprofile = "There are no profiles";
+        return res.status(400).json(errors);
+      }
+      res.json(profiles);
+    })
+    .catch(err => res.status(404).json({ profile: "There are no profiles" }));
+});
+
 //@route POST api/profile/handle/:handle  --> this is a backend api route (gets hit by frontend)
 //@desc  Get profile by handle
 //@access Public --> anyone can see a profile by the handle

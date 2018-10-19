@@ -10,7 +10,7 @@ const validateEducationInput = require("../../validation/education");
 
 // Load Profile model
 const Profile = require("../../models/Profile");
-// Load User profile
+// Load User model
 const User = require("../../models/User");
 
 //HEADER INFO BELOW
@@ -234,15 +234,55 @@ router.delete(
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         //find the experience we want to delete...so get remove index
-        const removeIndex = profile.experience
-          .map(item => item.id)
-          .indexOf(req.params.exp_id);
-        //splice the experience to be deleted out of array
+        const removeIndex = profile.experience //experience array
+          .map(item => item.id) //map the item to the id
+          .indexOf(req.params.exp_id); //find the index based on the exp id param
+        //splice the removeIndex out by targetting the experience array
         profile.experience.splice(removeIndex, 1); //with removeIndex we now know which one we want to remove, and we want to remove just one from our removeIndex var
         //save
         profile.save().then(profile => res.json(profile)); //save the new profile and send it back
       })
       .catch(err => res.status(404).json(err));
+  }
+);
+
+//@route DELETE api/profile/education/:exp_id
+//@desc  Delete education from profile
+//@access Private
+
+router.delete(
+  "/education/:edu_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        //find the experience we want to delete...so get remove index
+        const removeIndex = profile.education
+          .map(item => item.id)
+          .indexOf(req.params.edu_id);
+        //splice the experience to be deleted out of array
+        profile.education.splice(removeIndex, 1); //with removeIndex we now know which one we want to remove, and we want to remove just one from our removeIndex var
+        //save
+        profile.save().then(profile => res.json(profile)); //save the new profile and send it back
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+//@route DELETE api/profile
+//@desc  Delete user and profile
+//@access Private
+
+router.delete(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id }) //mongoos method...then match the user to request .user.id which is the current user. Then that gives us a promise.
+      .then(() => {
+        User.findOneAndRemove({ _id: req.user.id }).then(
+          () => res.json({ success: true }) //don't need to pass anything like from a body in here, user is gone and profile is gone so we can just say success: true.
+        );
+      });
   }
 );
 

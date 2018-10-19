@@ -397,6 +397,9 @@ Should return this object:
 46. Testing the delete in postman by coyping bearer auth and the id of the experience we want to delete to paste into new DELETE tab. Here's the route with copy/pasted --> http://localhost:5000/api/experience/5bc8f286fffea53df97de9f3
 47. successful deletion with the id of an experience.
 48. Now it's time to create a delete route but this time for education.
+49. Delete profile and user routes complete, now i'll create a test user/profile just to be able to delete.
+50. Successful deletion of a user and their profile!
+51. Next big steps to come will be to start with react for our UI on top of our already built Express API.
 
 ### Resources
 

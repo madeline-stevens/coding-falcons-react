@@ -286,6 +286,8 @@ GET/verify current user - http://localhost:5000/api/users/current
 }
 ```
 
+# Set up the profile model
+
 30. Set up the profile schema in models/Profile.js
 31. Now we'll set up the routes in routes/api/profile.js
 32. we need to set up the 'Get current users proifle' route within profile.js -- add functionality for if user found return user, if not throw error.
@@ -401,15 +403,11 @@ Should return this object:
 50. Successful deletion of a user and their profile!
 51. Next big steps to come will be to start with react for our UI on top of our already built Express API.
 
+# Post (to the feed) API routes
+
+52. Creating the post model is next- like posting to a feed.
+53. model, route and validation files all created, next step is to test in post man after logging in again and typing a message between 10-300 characters.
+
 ### Resources
 
-Bootstrap in general (carousel, etc)- https://www.youtube.com/wa
-tch?v=gqOEoUR5RHg  
-Bootstrap carousel (deeper dive)- https://www.youtube.com/watch?v=R0nkkXkrby0  
-Rounding corners for about the team- https://codepen.io/Madeline206/pen/JZPmMY?editors=1100  
-Resizing jumbotron- https://www.codecademy.com/en/forum_questions/5398ac97282ae39e8d000be6  
-Bootstrap contact us- https://bootsnipp.com/snippets/featured/contact-us  
-Bootstrap footer- https://mdbootstrap.com/components/bootstrap-footer/  
-Formspree for contact us- https://formspree.io  
-routing (showing/hiding index.html content)- https://github.com/ejdelrio/11-spa_routing/tree/anthony-eddie/starter-code
-`
+Udemy, MERN stack front to back- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055220?start=0

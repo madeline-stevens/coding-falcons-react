@@ -407,6 +407,23 @@ Should return this object:
 
 52. Creating the post model is next- like posting to a feed.
 53. model, route and validation files all created, next step is to test in post man after logging in again and typing a message between 10-300 characters.
+54. Copying and pasting the Bearer Auth token each time we need to test is tough but once we start working on the frontend the bearer token will be stored in local storage and used as long as we're logged in.
+55. another REMINDER- for posts the user won't have to type in their name or avatar, that will come from the user's state and Redux. Redux will hold onto that while the user is logged in.
+56. Test post in postman- http://localhost:5000/api/posts:
+
+```json
+{
+  "_id": "5bcba900e21ccc367c4b83f3",
+  "text": "hello, this is a test. ",
+  "user": "5bbc2dd87eb7292ec700e824",
+  "likes": [],
+  "comments": [],
+  "date": "2018-10-20T22:15:28.245Z",
+  "__v": 0
+}
+```
+
+57. Now we create a route that will fetch all posts as well as route that will fetch a single post.
 
 ### Resources
 

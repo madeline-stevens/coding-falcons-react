@@ -424,6 +424,37 @@ Should return this object:
 ```
 
 57. Now we create a route that will fetch all posts as well as route that will fetch a single post.
+58. Successful routes to fetch all posts or just one post by id.
+59. Now we'll work on the DELETE post route.
+60. !!!!!! still a bug!!!!! Deleting works but then i'm getting an error when i try to GET all posts to confirm the delete-- ypeError: Post.find(...).sort(...).then(...).catch(...).json is not a function.
+61. I need to move on and come back to that bug later.
+62. Now we'll work on likes and unlikes.
+63. YAY! likes works!
+    HEre's the postman route with pasted id from my maddy123@gmail.com user- http://localhost:5000/api/posts/like/5bcbd46ed7a9c2400625ceaf
+
+```json
+{
+  "_id": "5bcbd46ed7a9c2400625ceaf",
+  "text": "this is the third test",
+  "user": "5bbc2dd87eb7292ec700e824",
+  "likes": [
+    {
+      "_id": "5bcbf0b10758654447e4751f",
+      "user": "5bbc2dd87eb7292ec700e824"
+    }
+  ],
+  "comments": [],
+  "date": "2018-10-21T01:20:46.245Z",
+  "__v": 1
+}
+```
+
+64. Excellent! unlike route also works! http://localhost:5000/api/posts/unlike/5bcbd46ed7a9c2400625ceaf
+65. Next we'll work on adding and removing comments.
+66. adding comments is successful with this postman POST route- http://localhost:5000/api/posts/comment/5bcbd46ed7a9c2400625ceaf
+67. NExt we'll build the delete comment route.
+68. delete comment route works! - http://localhost:5000/api/posts/comment/5bcbd46ed7a9c2400625ceaf/5bcbf9bf402c2a479085c0ef
+69. IT'S TIME FOR REACT AND REDUX!!!!!!!!!!!!!!!!!!!!!!!
 
 ### Resources
 

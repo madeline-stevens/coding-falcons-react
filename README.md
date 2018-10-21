@@ -455,6 +455,8 @@ Should return this object:
 67. NExt we'll build the delete comment route.
 68. delete comment route works! - http://localhost:5000/api/posts/comment/5bcbd46ed7a9c2400625ceaf/5bcbf9bf402c2a479085c0ef
 69. IT'S TIME FOR REACT AND REDUX!!!!!!!!!!!!!!!!!!!!!!!
+70. we're going to use 'create react app' which is commonly used with react apps, it creates a boiler plate UI...
+71. in terminal- npm i -g create-react-app
 
 ### Resources
 

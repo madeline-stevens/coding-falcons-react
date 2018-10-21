@@ -457,6 +457,16 @@ Should return this object:
 69. IT'S TIME FOR REACT AND REDUX!!!!!!!!!!!!!!!!!!!!!!!
 70. we're going to use 'create react app' which is commonly used with react apps, it creates a boiler plate UI...
 71. in terminal- npm i -g create-react-app
+72. now that we've installed that globally we can run this-- create-react-app client. Which will automatically create a client folder in your app.
+73. added this-- "proxy": "http://localhost:5000",
+    to the client package.json to be able to not have to type that before each route.
+74. to start client server on localhost 3000 we can cd into client-- cd client
+    and then just type-- npm start
+75. We're going to use somehting called 'concurrently' so we dont' have to start up both like i described above. We can start up concurrently and it will run both.
+76. npm i concurrently
+77. added to server side package json-- "dev": "concurrently \"npm run server\" \"npm run client\""
+78. in terminal-- npm run dev
+79. !!!! getting some errors in terminal after running the above command. going to read through them tomorrow.
 
 ### Resources
 

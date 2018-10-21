@@ -4,9 +4,12 @@
   "description": "Application to share information about our coding falcons school and summer code classes.",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
+    "concurrently": "^4.0.1",
     "cors": "^2.8.4",
     "express": "^4.15.3",
     "gravatar": "^1.6.0",

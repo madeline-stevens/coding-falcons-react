@@ -467,6 +467,21 @@ Should return this object:
 77. added to server side package json-- "dev": "concurrently \"npm run server\" \"npm run client\""
 78. in terminal-- npm run dev
 79. !!!! getting some errors in terminal after running the above command. going to read through them tomorrow.
+80. I'm following the provided steps in terminal (i copied and saved my package lock and nodemodules files from my server side in another location before deleting):
+    To fix the dependency tree, try following the steps below in the exact order:
+    [1][1] 1. Delete package-lock.json (not package.json!) and/or yarn.lock in your project folder.
+    [1] 2. Delete node_modules in your project folder.
+    [1] 3. Remove "babel-jest" from dependencies and/or devDependencies in the package.json file in your project folder.
+    [1] 4. Run npm install or yarn, depending on the package manager you use.
+81. just deleted package lock and a nodemodules in my home folder! they suggested that could be culprit.
+82. npm run dev FINALLY WORKS! Because I kept reading 'concurrently: command not found' and 'Failed at coding_falcons@1.0.0 dev script I knew something had to be up with my package.json, so I tried to just run 'npm run start' to just run the client side and when i did that I also was getting errors but this time it was for each individual missing package in my new package.json, so i just individually installed about four of them (body parser, express, mongoose) and that worked!
+83. That command (npm run start) immediately launched chrome on localhost:3000 with a react screen.
+84. And we can test the backend with http://localhost:5000/api/profile/all
+    This give us an array of objects. It's servering our data from mongoDB through our backend.
+85. Now that we have our backend and frontend running at the same time we're ready to clean up some things create-react-app auto added for us. Don't need: logo.svg
+86. bootstrap CDN both the css link and the js links.
+87. I already have the React and Redux chrome dev tools installed in chrome but this would be the time to do so if not installed.
+88. install fontawesome
 
 ### Resources
 

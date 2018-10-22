@@ -482,7 +482,35 @@ Should return this object:
 86. bootstrap CDN both the css link and the js links.
 87. I already have the React and Redux chrome dev tools installed in chrome but this would be the time to do so if not installed.
 88. install fontawesome
+89. Navbar, Landing and Footer components are all copied and pasted so we've got just a bunch of dumb components rendering and it looks really good.
+90. Next is intalling the react router ON THE CLIENT SIDE! Because lots of routes. Version 4 or react router.
+91. npm i react-router-dom
+92. Router is brought into App.js
+93. Right now we have Landing always displaying but we don't want that we want a route for Landing.
+
+```js
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Landing />
+          <Footer />
+        </div>
+      </Router>
+    );
+```
+
+94. To make sure the router is working, lets create another component.
+95. Login and Register routes (/register and /login) work but now we need to lINK them to the actual buttons that say login and register in the upper right hand corner by going to navbar.js and replace the hrefs (to html pages) with Links to "/register" routes.
+96. I'm getting this error in terminal after using Link:
+
+[1] Line 39: 'Link' is not defined react/jsx-no-undef
+
+And it was suggested to use this: import { Link } from 'react-router';
+But I think there's just something not imported. More later.
 
 ### Resources
 
-Udemy, MERN stack front to back- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055220?start=0
+Udemy- "MERN stack front to back" with Brad Traversy- https://www.udemy.com/mern-stack-front-to-back/learn/v4/t/lecture/10055220?start=0

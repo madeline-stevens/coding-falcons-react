@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <a className="navbar-brand" href="landing.html">
-            DevConnector
-          </a>
+          <Link className="navbar-brand" to="/">
+            Coding Falcons
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,14 +31,14 @@ class Navbar extends Component {
 
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="register.html">
+                <Link className="nav-link" to="/register">
                   Sign Up
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="login.html">
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

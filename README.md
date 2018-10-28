@@ -36,8 +36,9 @@ npm update && npm install
 
 #### CDNs (aka- libraries)
 
-- page.js
-- jquery
+-
+
+- gravatar
 - bootstrap
 - Font Awesome ( twitter- <i class="fab fa-twitter-square"></i>)
 
@@ -102,11 +103,11 @@ The issue was that I had used that php trick to attempt to host a simple html/cs
 
 In server.js:
 
-```
-app.get('/*', (req, res) => {
+```js
+app.get("/*", (req, res) => {
   console.log("__REQUEST__ : ", req);
   console.log("__RESPONSE__ : ", res);
-  res.sendFile('index.html', {root: './public'});
+  res.sendFile("index.html", { root: "./public" });
 });
 ```
 
@@ -477,10 +478,10 @@ Should return this object:
 82. npm run dev FINALLY WORKS! Because I kept reading 'concurrently: command not found' and 'Failed at coding_falcons@1.0.0 dev script I knew something had to be up with my package.json, so I tried to just run 'npm run start' to just run the client side and when i did that I also was getting errors but this time it was for each individual missing package in my new package.json, so i just individually installed about four of them (body parser, express, mongoose) and that worked!
 83. That command (npm run start) immediately launched chrome on localhost:3000 with a react screen.
 84. And we can test the backend with http://localhost:5000/api/profile/all
-    This give us an array of objects. It's servering our data from mongoDB through our backend.
+    This give us an array of objects. It's serving our data from mongoDB through our backend.
 85. Now that we have our backend and frontend running at the same time we're ready to clean up some things create-react-app auto added for us. Don't need: logo.svg
 86. bootstrap CDN both the css link and the js links.
-87. I already have the React and Redux chrome dev tools installed in chrome but this would be the time to do so if not installed.
+87. I already have the React and Redux chrome dev tool extensions installed in chrome but this would be the time to do so if not installed.
 88. install fontawesome
 89. Navbar, Landing and Footer components are all copied and pasted so we've got just a bunch of dumb components rendering and it looks really good.
 90. Next is intalling the react router ON THE CLIENT SIDE! Because lots of routes. Version 4 or react router.

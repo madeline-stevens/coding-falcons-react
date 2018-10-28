@@ -513,6 +513,7 @@ And it was suggested to use this: import { Link } from 'react-router';
 But I think there's just something not imported. More later.
 
 97. Fixed above issue by importing Link like I suspected. More work on the Navbar.js file later.
+98. This is the addition i'm adding as my marker to go back to.
 
 ### Resources
 
